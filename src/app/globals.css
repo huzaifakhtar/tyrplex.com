@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +30,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+.dealer-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dealer-container h1 {
+  color: #333;
+  font-size: 24px;
+}
+
+.dealer-container p {
+  color: #666;
+  font-size: 16px;
 }
