@@ -1,60 +1,60 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
-const config: Config = {
+const config = {
+  darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: "",
   theme: {
-    extend: {
-      backgroundImage: {
-        'conic-gradient-from-[#10B981]': 'conic-gradient(from 225deg at 50% 50%, rgba(16, 185, 129, 0) 0deg, #10B981 25deg, #EDFAF6 285deg, #FFFFFF 345deg, rgba(16, 185, 129, 0) 360deg)',
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
+    },
+    extend: {
       keyframes: {
-        'tile-4': {
-          '0%': { transform: 'rotate(30deg) scale(1)', opacity: '0' },
-          '50%': { transform: 'rotate(30deg) scale(1.25)', opacity: '1' },
-          '100%': { transform: 'rotate(30deg) scale(1)', opacity: '0' },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        'tile-5': {
-          '0%': { transform: 'rotate(-30deg) scale(1)', opacity: '0' },
-          '50%': { transform: 'rotate(-30deg) scale(1.25)', opacity: '1' },
-          '100%': { transform: 'rotate(-30deg) scale(1)', opacity: '0' },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
-        'tile-6': {
-          '0%': { transform: 'rotate(60deg) scale(1)', opacity: '0' },
-          '50%': { transform: 'rotate(60deg) scale(1.25)', opacity: '1' },
-          '100%': { transform: 'rotate(60deg) scale(1)', opacity: '0' },
-        },
-        'tile-7': {
-          '0%': { transform: 'rotate(-60deg) scale(1)', opacity: '0' },
-          '50%': { transform: 'rotate(-60deg) scale(1.25)', opacity: '1' },
-          '100%': { transform: 'rotate(-60deg) scale(1)', opacity: '0' },
-        },
-        'tile-8': {
-          '0%': { transform: 'scale(1)', opacity: '0' },
-          '50%': { transform: 'scale(1.25)', opacity: '1' },
-          '100%': { transform: 'scale(1)', opacity: '0' },
-        },
-        'line-1': {
-          '0%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-          '50%': { transform: 'rotate(45deg) scaleX(1.5)', opacity: '1' },
-          '100%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-        },
-        'line-2': {
-          '0%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-          '50%': { transform: 'rotate(45deg) scaleX(1.5)', opacity: '1' },
-          '100%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-        },
-        'line-3': {
-          '0%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-          '50%': { transform: 'rotate(45deg) scaleX(1.5)', opacity: '1' },
-          '100%': { transform: 'rotate(45deg) scaleX(1)', opacity: '0' },
-        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [],
-};
-export default config;
+  plugins: [
+    require("tailwindcss-animate"),
+    addVariablesForColors, // {{ edit_1 }} Added the new plugin
+  ],
+} satisfies Config
+
+// {{ edit_2 }} Added the new function
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
+
+export default config

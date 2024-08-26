@@ -1,3 +1,6 @@
+"use client"
+import { Button } from "./ui/moving-border";
+
 const services = [
     { name: 'Wheel Balancing', image: '/wheel-balancing.jpg' },
     { name: 'Wheel Alignment', image: '/wheel-alignment.jpg' },
@@ -12,7 +15,13 @@ const services = [
             <div key={service.name} className="bg-gray-100 rounded-lg p-4 flex flex-col items-center">
               <img src={service.image} alt={service.name} className="w-24 h-24 object-cover rounded-full mb-2" />
               <span className="font-medium">{service.name}</span>
-              <button className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+              {/*This is a custom button */}
+              {/* <Button borderRadius="1.75rem"
+                className=" bg-red-50 dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800">
+              Book Now
+                 </Button> */}
+                 {/*This is a common button */}
+              <button className="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition flex items-center justify-center w-full md:w-auto">
                 Book Now
               </button>
             </div>

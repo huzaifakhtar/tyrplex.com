@@ -1,6 +1,5 @@
 "use client"
 import CompanyDetails from '@/components/CompanyDetails'
-import GoogleReviews from '@/components/GoogleReviews'
 import Deals from '@/components/Deals'
 import Services from '@/components/Services'
 import TyresSold from '@/components/TyresSold'
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <div className="space-y-12">
       <CompanyDetails />
-      <GoogleReviews />
       <Deals />
       <Services />
       <TyresSold />
