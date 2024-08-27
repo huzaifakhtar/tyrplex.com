@@ -11,38 +11,38 @@ const tyres = [
   
   export default function TyresSold() {
     return (
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-semibold mb-4">Tyres sold by this Dealer</h2>
+      <div className="bg-white shadow-md rounded-lg p-6 dark:bg-gray-800">
+        <h2 className="text-xl font-semibold mb-4 dark:text-white">Tyres sold by this Dealer</h2>
         <div className="flex justify-between mb-4">
-          <select className="border rounded px-2 py-1">
+          <select className="border rounded px-2 py-1 dark:bg-gray-700 dark:text-white">
             <option>Filter By</option>
           </select>
-          <select className="border rounded px-2 py-1">
+          <select className="border rounded px-2 py-1 dark:bg-gray-700 dark:text-white">
             <option>Most Popular</option>
           </select>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {tyres.map((tyre) => (
-            <div key={tyre.id} className="border rounded-lg p-4">
-              <div className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2 py-1 rounded mb-2 inline-block">
+            <div key={tyre.id} className="border rounded-lg p-4 dark:bg-gray-700">
+              <div className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2 py-1 rounded mb-2 inline-block dark:bg-yellow-600 dark:text-yellow-200">
                 {tyre.warranty}
               </div>
-              <h3 className="font-semibold">{tyre.name}</h3>
-              <p className="text-sm text-gray-600">{tyre.size}</p>
+              <h3 className="font-semibold dark:text-white">{tyre.name}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">{tyre.size}</p>
               <div className="flex items-center mt-2">
-                <span className="bg-green-500 text-white px-2 py-1 rounded text-sm mr-2">{tyre.rating}</span>
-                <span className="text-sm text-gray-600">{tyre.reviews} Reviews</span>
+                <span className="bg-green-500 text-white px-2 py-1 rounded text-sm mr-2 dark:bg-green-600">{tyre.rating}</span>
+                <span className="text-sm text-gray-600 dark:text-gray-300">{tyre.reviews} Reviews</span>
               </div>
-              <p className="mt-2 font-bold">₹{tyre.price}</p>
-              <p className="text-sm text-green-600">Offer available</p>
-              <button className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full">
+              <p className="mt-2 font-bold dark:text-white">₹{tyre.price}</p>
+              <p className="text-sm text-green-600 dark:text-green-400">Offer available</p>
+              <button className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition w-full dark:bg-green-600 dark:hover:bg-green-700">
                 Add to Cart
               </button>
             </div>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <button className="border border-gray-300 rounded px-4 py-2 hover:bg-gray-100 transition">
+          <button className="border border-gray-300 rounded px-4 py-2 hover:bg-gray-100 transition dark:border-gray-600 dark:hover:bg-gray-700">
             View more
           </button>
         </div>

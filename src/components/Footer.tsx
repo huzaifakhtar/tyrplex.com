@@ -4,35 +4,58 @@ import Image from 'next/image';
 
 const Footer = () => {
   const footerSections = [
-    { title: 'Who We Are', links: ['Are you a Tyre Dealer?', 'About Us', 'Our Mission'] },
-    { title: 'Privacy & Terms', links: ['Privacy Policy', 'Terms of Use', 'Cookie Policy'] },
-    { title: 'Connect With Us', links: ['Contact Us', 'Career', 'Support'] },
-    { title: 'Policies', links: ['Shipping Policy', 'Return Policy', 'Warranty Information'] },
+    {
+      title: 'Who We Are',
+      links: ['Are you a Tyre Dealer?', 'About Us', 'Our Mission'],
+      urls: ['#dealer', '#about', '#mission'], // Added URLs
+    },
+    {
+      title: 'Privacy & Terms',
+      links: ['Privacy Policy', 'Terms of Use', 'Cookie Policy'],
+      urls: ['#privacy', '#terms', '#cookies'],
+    },
+    {
+      title: 'Connect With Us',
+      links: ['Contact Us', 'Career', 'Support'],
+      urls: ['#contact', '#career', '#support'], 
+    },
+    {
+      title: 'Policies',
+      links: ['Shipping Policy', 'Return Policy', 'Warranty Information'],
+      urls: ['#shipping', '#returns', '#warranty'], 
+    },
+  ];
+
+  const socialLinks = [
+    { name: 'Facebook', url: '#facebook' },
+    { name: 'Twitter', url: '#twitter' },
+    { name: 'Instagram', url: '#instagram' },
+    { name: 'LinkedIn', url: '#linkedin' },
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
+    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 py-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center mb-8">
+        <div className="flex items-center mb-8">
           <Image
             src="/TP-logo-mbl.png"
             alt="TyrePlex Logo"
             width={150}
             height={50}
-            className="mb-4"
+            className="mr-4"
           />
-          <p className="text-gray-400 text-sm">Your Trusted Tyre Partner</p>
+          <p className="text-gray-600 dark:text-gray-300 text-sm">Your Trusted Tyre Partner</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-4 fade-in">
-              <h3 className="text-xl font-bold mb-4 border-b-2 border-teal-500 pb-2 inline-block">
+              <h3 className="text-xl font-bold mb-4 border-b-2 border-teal-500 pb-2 inline-block dark:border-teal-400">
                 {section.title}
               </h3>
               <ul className="space-y-2">
-                {section.links.map((link) => (
+                {section.links.map((link, index) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-300 hover:text-teal-400 transition-colors duration-300">
+                    <a href={section.urls[index]} className="text-gray-600 dark:text-gray-400 hover:text-teal-500 dark:hover:text-teal-300 transition-colors duration-300">
                       {link}
                     </a>
                   </li>
@@ -43,17 +66,17 @@ const Footer = () => {
         </div>
         <div className="mt-16 text-center fade-in">
           <div className="flex justify-center space-x-6 mb-8">
-            {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((social) => (
+            {socialLinks.map((social) => (
               <a
-                key={social}
-                href="#"
-                className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+                key={social.name}
+                href={social.url}
+                className="text-gray-600 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-300 transition-colors duration-300"
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
             ©2024 TyrePros Technologies & Commerce Pvt. Ltd. All Rights Reserved.
           </p>
         </div>

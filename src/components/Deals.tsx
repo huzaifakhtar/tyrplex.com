@@ -40,13 +40,13 @@ const deals = [
 
 export default function Deals() {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
-      <h2 className="text-2xl font-bold mb-4 text-center">Deals in</h2>
+    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
+      <h2 className="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-white">Deals in</h2>
       <div className="flex space-x-4 overflow-x-auto pb-4 shuja">
         {deals.map((deal) => (
-          <div key={deal.name} className="flex-shrink-0 bg-gray-200 rounded-lg p-4 w-32 h-32 flex items-center justify-center transition-transform transform hover:scale-105">
+          <div key={deal.name} className="flex-shrink-0 bg-gray-200 dark:bg-gray-700 rounded-lg p-4 w-32 h-32 flex items-center justify-center transition-transform transform hover:scale-105">
             {/* <img src={deal.image} alt={deal.name} className="w-20 h-20 object-cover rounded-full mb-2 shadow-md" /> */}
-            <span className="text-center font-semibold">{deal.name}</span>
+            <span className="text-center font-semibold text-gray-900 dark:text-white">{deal.name}</span>
           </div>
         ))}
       </div>
