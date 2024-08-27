@@ -22,14 +22,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-white dark:bg-gray-900 text-black dark:text-white`}>
+      <body className={`${inter.className} bg-white dark:bg-black dark:border-white/[0.2] text-black dark:text-white`}>
         <ThemeProvider attribute="class">
         <Header/>
         <div className="text-2xl font-bold">
-              <Image src={"/TP-logo-mbl.png"} alt="logo" width={150} height={50}/>
+                          <Image
+                            src={"/TP-logo-mbl.png"}
+                            alt="logo"
+                            width={150}
+                            height={50}
+                            className="dark:invert"
+                          />
             </div>
             <ThemeToggle />
-      <main className="container mx-auto px-4 py-8 dark:bg-gray-800">
+      <main className="container mx-auto px-4 py-8 dark:bg-black dark:border-white/[0.2]">
         {children}
       </main>
       <Footer/>

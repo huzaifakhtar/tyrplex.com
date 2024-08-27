@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-800 dark:from-gray-900 dark:to-gray-800 dark:text-gray-200 py-16">
+    <footer className="bg-white text-black dark:bg-black dark:to-gray-800 dark:text-white py-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center mb-8">
           <Image
@@ -42,7 +42,7 @@ const Footer = () => {
             alt="TyrePlex Logo"
             width={150}
             height={50}
-            className="mr-4"
+            className="mr-4 dark:invert"
           />
           <p className="text-gray-600 dark:text-gray-300 text-sm">Your Trusted Tyre Partner</p>
         </div>
